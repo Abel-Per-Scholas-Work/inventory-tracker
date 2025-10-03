@@ -53,7 +53,8 @@ console.log(
 	"Sorting Products by name: \n",
 	sortResult.sortByName([...allProduct])
 );
-console.log(allProduct);
-// console.log(
-"Sorting Products by price: \n", sortResult.sortByPrice([...allProduct]);
-// );
+
+console.log(
+	"Sorting Products by price: \n",
+	sortResult.sortByPrice([...allProduct])
+);
