@@ -14,6 +14,6 @@ export default class Product {
 	}
 
 	getPriceWithTax(): number {
-		return this.price;
+		return this.price + this.price * 0.1;
 	}
 }
