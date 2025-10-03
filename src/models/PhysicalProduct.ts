@@ -1,6 +1,6 @@
 import Product from "./Product";
 
-//inteface
+//interface
 interface DiscountableProduct {
 	applyDiscount(): number;
 }
@@ -25,7 +25,11 @@ export default class PhysicalProduct
 	}
 
 	getPriceWithTax(): number {
-		return this.price + this.price * 0.1;
+		//first version
+		// return this.price + this.price * 0.1;
+
+		//after implementing the DiscountableProduct interface
+		return this.applyDiscount();
 	}
 
 	//apply discount
@@ -35,10 +39,8 @@ export default class PhysicalProduct
 			let discountPrice = this.price - this.discountInDollars;
 			return discountPrice + this.discountInDollars * 0.1;
 		}
-		// or else  the normal price
-		else {
-			return this.getPriceWithTax();
-		}
+
+		return this.price + this.price * 0.1;
 	}
 
 	get getWeight(): string {
