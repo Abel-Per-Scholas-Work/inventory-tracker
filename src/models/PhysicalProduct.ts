@@ -11,6 +11,9 @@ export default class PhysicalProduct
 {
 	weight: number;
 	discountInDollars?: number;
+	//bulk discount in %
+	//applied to physical product with weight 50 or more a 20 OFF discount on the item
+	static bulkDiscount = 20;
 
 	constructor(
 		sku: string,
@@ -37,10 +40,21 @@ export default class PhysicalProduct
 		//check to see if discount is given
 		if (this.discountInDollars) {
 			let discountPrice = this.price - this.discountInDollars;
-			return discountPrice + this.discountInDollars * 0.1;
+			//apply the bulk discount
+			if (this.weight > 50) {
+				let bulkDiscountPrice = discountPrice - PhysicalProduct.bulkDiscount;
+				return bulkDiscountPrice + bulkDiscountPrice * 0.1;
+			} else {
+				return discountPrice + discountPrice * 0.1;
+			}
+		} else {
+			if (this.weight > 50) {
+				let bulkDiscountPrice = this.price - PhysicalProduct.bulkDiscount;
+				return bulkDiscountPrice + bulkDiscountPrice * 0.1;
+			} else {
+				return this.price + this.price * 0.1;
+			}
 		}
-
-		return this.price + this.price * 0.1;
 	}
 
 	get getWeight(): string {
