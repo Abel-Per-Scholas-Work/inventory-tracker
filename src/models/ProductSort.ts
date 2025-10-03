@@ -1,13 +1,11 @@
 import Product from "./Product";
 
 export default class ProductSort {
-	item: Product[] = [];
-
-	sortByPrice(): Product[] {
-		return this.item.sort((a, b) => a.price - b.price);
+	sortByPrice(item: Product[]): Product[] {
+		return item.sort((a, b) => a.price - b.price);
 	}
-	sortByName(): Product[] {
-		return this.item.sort((a, b) => {
+	sortByName(item: Product[]): Product[] {
+		return item.sort((a, b) => {
 			const nameA = a.name.toUpperCase();
 			const nameB = b.name.toUpperCase();
 			if (nameA < nameB) {
