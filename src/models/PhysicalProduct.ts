@@ -58,6 +58,6 @@ export default class PhysicalProduct
 	}
 
 	get getWeight(): string {
-		return `${this.weight} kg`;
+		return `${this.weight / 2.205} kg`;
 	}
 }
