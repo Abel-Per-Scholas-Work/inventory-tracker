@@ -12,6 +12,7 @@ const bag = new PhysicalProduct(sku(), "LV bag", 3000, 2);
 //physical Product with Discount
 const DiscountChair = new PhysicalProduct(sku(), "IKEA Chair", 100, 1); //default discount
 const DiscountTable = new PhysicalProduct(sku(), "Ashely Table", 200, 1, 20); //20 dollars of
+const Tree = new PhysicalProduct(sku(), "Mango Tree", 1000, 200); //20 dollars of
 
 //digital product
 const blackMailFile = new DigitalProduct(sku(), "Dirty Laundry", 100, 30);
@@ -35,7 +36,13 @@ console.log("This bag cost: ", calculateTax(bag));
 console.log("This file cost: ", calculateTax(blackMailFile));
 
 //Array of all products
-let allProduct: Product[] = [bag, blackMailFile, DiscountChair, DiscountTable];
+let allProduct: Product[] = [
+	bag,
+	blackMailFile,
+	DiscountChair,
+	DiscountTable,
+	Tree,
+];
 let TotalPrice = 0;
 
 //calculate the total
